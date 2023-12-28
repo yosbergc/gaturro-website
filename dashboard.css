@@ -1,0 +1,93 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+main {
+    min-height: 100vh;
+    background: rgb(30, 27, 27);
+    padding-bottom: 120px;
+}
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+}
+.mobile-header span {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+.welcome-user {
+    text-transform: capitalize;
+}
+.hamburgerMenu {
+    width: 30px;
+}
+.down-website {
+    background: linear-gradient(0deg, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 20px 10px 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.down-website img {
+    width: 25px;
+}
+.down-website .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.down-website span {
+    color: white;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.main {
+    margin: 30px 20px 0px 20px;
+}
+.section-title {
+    color: white;
+    margin: 40px 0px;
+}
+.latest-songs, .latest-playlist {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.song, .playlist {
+    scroll-snap-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+.song img, .playlist img {
+    width: 70vw;
+    max-width: 300px;
+}
+.song .song-name, .playlist .playlist-name {
+    color: white;
+    margin-top: 5px;
+}
+.song .artist-name {
+    color: rgb(208, 208, 208);
+    display: inline-block;
+    margin-top: 5px;
+}
+@media (min-width: 1280px) {
+    .latest-songs {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 20px;
+    }
+}
