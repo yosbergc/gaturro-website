@@ -1,7 +1,18 @@
 let welcomeMessage = document.querySelector('.welcome-user');
 let songsContainer = document.querySelector('.latest-songs');
+let menuIcon = document.querySelector('.hamburgerMenu');
+let menuContainer = document.querySelector('.menuMobile')
+let closeMenuIcon = document.querySelector('.closeIcon');
+menuIcon.addEventListener('click', menuMobile);
+closeMenuIcon.addEventListener('click', menuMobile)
 window.addEventListener('load', iniciarSistema);
-
+function menuMobile() {
+    if (menuContainer.classList.contains('hide')) {
+        menuContainer.classList.remove('hide');
+    } else {
+        menuContainer.classList.add('hide')
+    }
+}
 function iniciarSistema() {
     let usuario = localStorage.getItem('loggedUser');
     welcomeMessage.innerHTML = `${usuario}`;
