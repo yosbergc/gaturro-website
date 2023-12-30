@@ -6,7 +6,7 @@
 }
 main {
     min-height: 100vh;
-    background: rgb(30, 27, 27);
+    background: #131213;
     padding-bottom: 120px;
 }
 .mobile-header {
@@ -17,17 +17,17 @@ main {
 }
 .mobile-header span {
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
 }
 .welcome-user {
     text-transform: capitalize;
 }
 .hamburgerMenu {
-    width: 30px;
+    width: 20px;
 }
 .down-website {
-    background: linear-gradient(0deg, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
     position: fixed;
     bottom: 0px;
     width: 100%;
@@ -54,6 +54,7 @@ main {
 .section-title {
     color: white;
     margin: 40px 0px;
+    font-size: 18px;
 }
 .latest-songs, .latest-playlist {
     display: flex;
@@ -72,17 +73,88 @@ main {
     margin-right: 20px;
 }
 .song img, .playlist img {
-    width: 70vw;
+    width: 45vw;
     max-width: 300px;
 }
 .song .song-name, .playlist .playlist-name {
     color: white;
     margin-top: 5px;
+    font-weight: 400;
+    font-size: 1rem;
 }
 .song .artist-name {
     color: rgb(208, 208, 208);
     display: inline-block;
     margin-top: 5px;
+}
+.player {
+    background-color: #7d1b07;
+    padding: 10px 15px;
+    width: 93%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    position: fixed;
+    bottom: 70px;
+}
+.inner-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.song-info {
+    display: flex;
+}
+.like-current-song, .play-button {
+    width: 25px;
+}
+.song-part {
+    display: flex;
+    align-items: center;
+}
+.current-song-artwork {
+    width: 40px;
+    margin-right: 10px;
+}
+.current-song-title {
+    font-size: 13px;
+    color: white;
+}
+.current-song-artist {
+    font-size: 13px;
+    color: white;
+}
+.current-song-right {
+    display: flex;
+    gap: 20px;
+}
+.time {
+    margin-top: 5px;
+    height: 2px;
+    background-color: rgb(150, 150, 150);
+    bottom: 0px;
+}
+.hide {
+    display: none;
+}
+.generos-section {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    margin-bottom: 10px;
+}
+.genero {
+    text-wrap: nowrap;
+    color: white;
+    scroll-snap-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #292929;
+    padding: 10px;
+    border-radius: 5px;
 }
 @media (min-width: 1280px) {
     .latest-songs {
