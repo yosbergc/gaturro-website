@@ -214,12 +214,47 @@ nav ul li {
 }
 .current-song-player {
     width: 90%;
-    max-width: 220px;
+    max-width: 200px;
+    place-self: center;
 }
 .player-container-inner {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 20px;
+}
+.current-song-title-big-player {
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+}
+.current-song-artist-big-player {
+    color: rgb(197, 197, 197);
+}
+.timeBigPlayer {
+    background-color: rgb(150, 150, 150);
+    margin-top: 20px;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.currentTimeBigPlayer {
+    height: 100%;
+    width: 0%;
+    background-color: white;
+}
+.bigPlay {
+    width: 40px;
+    background-color: rgb(30, 30, 30);
+    padding: 10px;
+    border-radius: 50%;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 @media (min-width: 1280px) {
     .latest-songs {
