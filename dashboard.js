@@ -6,14 +6,29 @@ let closeMenuIcon = document.querySelector('.closeIcon');
 let playerSmall = document.querySelector('.player');
 let nombre;
 let cancionActual = new Audio();
+let playButtonSmall = document.querySelector('.play-button')
 let currentSongName = document.querySelector('.current-song-title');
 let currentSongArtist = document.querySelector('.current-song-artist');
 let currentSongArtwork = document.querySelector('.current-song-artwork');
 let currentTimeSmall = document.querySelector('.currentTime');
-
+let currentSongArtworkBig = document.querySelector('.current-song-player')
+let bigPlayerContainer = document.querySelector('.bigPlayer')
+let hideBigPlayer = document.querySelector('.hidePlayer');
+hideBigPlayer.addEventListener('click', ocultarReproductor);
+playerSmall.addEventListener('click', mostrarReproductor);
+playButtonSmall.addEventListener('click', pausarCancion);
 menuIcon.addEventListener('click', menuMobile);
 closeMenuIcon.addEventListener('click', menuMobile)
 window.addEventListener('load', iniciarSistema);
+function ocultarReproductor() {
+    bigPlayerContainer.classList.add('hide')
+}
+function mostrarReproductor(event) {
+    if (event.target.className != "play-button") {
+        bigPlayerContainer.classList.remove('hide')
+    }
+    
+}
 function menuMobile() {
     if (menuContainer.classList.contains('hide')) {
         menuContainer.classList.remove('hide');
@@ -55,10 +70,16 @@ function reproducirCancion(nombreCancion) {
     let {nombre, songArtwork, nombreArtista} = cancionObtenida;
     cancionActual.pause()
     cancionActual.src = cancionObtenida.source;
-    cancionActual.play();
+    cancionActual.play().then(() => {
+        playButtonSmall.setAttribute('src', 'pause.svg')
+    })
     // Actualizamos los datos del small player
     currentTimeSmall.style.width = "0%";
     smallPlayer(nombre, songArtwork, nombreArtista)
+    bigPlayer(nombre, songArtwork, nombreArtista);
+}
+function bigPlayer(nombre, songArtwork, nombreArtista) {
+    currentSongArtworkBig.setAttribute('src', songArtwork)
 }
 function smallPlayer(nombre, songArtwork, nombreArtista) {
     currentSongName.innerHTML = nombre;
@@ -69,4 +90,14 @@ function smallPlayer(nombre, songArtwork, nombreArtista) {
         currentTimeSmall.style.width = `${((cancionActual.currentTime / cancionActual.duration) * 100)}%`
     }, 1000);
 
+}
+function pausarCancion() {
+    if (!cancionActual.paused) {
+        cancionActual.pause();
+        playButtonSmall.setAttribute('src', 'play.svg')
+    } else {
+        cancionActual.play().then(() => {
+            playButtonSmall.setAttribute('src', 'pause.svg')
+        })
+    }
 }
